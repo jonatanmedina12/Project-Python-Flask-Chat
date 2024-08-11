@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}" />
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Chat Moderno</h1>
+        <form method="post">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" value="{{nombre}}" required placeholder="Ingresa tu nombre">
+
+            <label for="nuevo_mensaje">Nuevo mensaje</label>
+            <input type="text" id="nuevo_mensaje" name="nuevo_mensaje" required placeholder="Escribe tu mensaje aquí">
+
+            <button type="submit">Enviar</button>
+        </form>
+
+        <ul>
+            {% for mensaje in mensajes %}
+                <li>{{mensaje}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
