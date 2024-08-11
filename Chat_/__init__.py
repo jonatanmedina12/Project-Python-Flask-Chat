@@ -3,6 +3,8 @@ import os
 from flask import Flask
 from config import Config
 
+from Chat_.Controller.chatController import chat_bp
+
 from flask_socketio import SocketIO
 
 socketio = SocketIO()
@@ -16,7 +18,9 @@ def created_app():
 
     app.config['TEMPLATES_AUTO_RELOAD'] = True
 
+
     from Chat_.Controller.chatController import chat_bp
+
 
     app.register_blueprint(chat_bp)
 
